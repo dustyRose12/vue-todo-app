@@ -1,0 +1,20 @@
+<div id="app">
+  {{ message }}
+  <input v-model="message">
+  <h2>Tasks</h2>
+  <div v-for="task in tasks" v-on:click="completeTask(task)" v-if="true">
+    <h4>{{ task.priority }} {{ task.item}}</h4>
+</div>
+  <h4>Add a Task:</h4>
+  <div>
+    Enter Item:  <input v-model="newTaskItem">
+  </div>
+ <div>
+   Enter Priority:  <input v-model="newTaskPriority">
+ </div>
+
+ <button v-on:click="addTask()">Add Task</button>
+
+
+</div>
+
