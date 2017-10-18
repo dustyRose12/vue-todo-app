@@ -2,9 +2,16 @@
   {{ message }}
   <input v-model="message">
   <h2>Tasks</h2>
-  <div v-for="task in tasks" v-on:click="completeTask(task)" v-if="true">
-    <h4>{{ task.priority }} {{ task.item}}</h4>
+  <div v-for="task in tasks" v-on:click="completeTask(task)">
+    <h4 v-bind:class="{strike: task.completed}" >{{ task.item}} - {{ task.priority }}</h4>
 </div>
+
+<div >
+  <h3>Total Tasks Left: {{ tasksLeft() }}</h3> <button v-on:click="deleteCompletedTasks()">Delete Completed Tasks</button>
+</div>
+
+
+
   <h4>Add a Task:</h4>
   <div>
     Enter Item:  <input v-model="newTaskItem">
